@@ -14,17 +14,17 @@ char TimeStringFinal[10] = {'+','0','0',':','0','0',':','0','0'}; //để in k�
 char TimeStringFinalDefault[10] = {'+','0','0',':','0','0',':','0','0'};
 
 void TimeCalc(Time s1, Time s2){
-    //Tính abs chênh lệch t1 t2 theo đơn vị giây
+    //Tính abs of (t2-t1) in seconds
     int Time1 = s1.hour * 3600 + s1.min * 60 + s1.sec;
     int Time2 = s2.hour * 3600 + s2.min * 60 + s2.sec;
     int Diff = abs(Time2 - Time1);
 
-    //Quy đổi sang hệ (giờ:phút:giây)
+    //Calculating hour, min,sec of the result
     int FinalHour = Diff / 3600;
     int FinalMin = (Diff - FinalHour * 3600) / 60;
     int FinalSec = Diff - FinalHour * 3600 - FinalMin * 60;
 
-    //In kết quả
+    //assign the result in string
     TimeStringFinal[1] = FinalHour/10+'0';
     TimeStringFinal[2] = FinalHour%10+'0';
 
